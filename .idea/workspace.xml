@@ -5,7 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="12c18597-e39e-4488-849b-ef76c7b0abc4" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/hexlet/code/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/hexlet/code/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/READMY.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/hexlet/code/App.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/hexlet/code/Cli.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/test/java/hexlet/code/AppTest.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,20 +43,13 @@
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
                 <item name="app" type="f1a62948:ProjectNode" />
-                <item name="app" type="2d1252cf:ModuleNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="app" type="f1a62948:ProjectNode" />
-                <item name="app" type="2d1252cf:ModuleNode" />
                 <item name="Tasks" type="e4a08cd1:TasksNode" />
               </path>
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
                 <item name="app" type="f1a62948:ProjectNode" />
-                <item name="app" type="2d1252cf:ModuleNode" />
                 <item name="Tasks" type="e4a08cd1:TasksNode" />
-                <item name="application" type="c8890929:TasksNode$1" />
+                <item name="distribution" type="c8890929:TasksNode$1" />
               </path>
             </expand>
             <select />
@@ -57,6 +57,13 @@
         </projects_view>
       </state>
     </system>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -72,12 +79,53 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
   </component>
-  <component name="RunManager" selected="Gradle.app:app [run]">
-    <configuration name="app [installDist]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app" />
+      <recent name="$PROJECT_DIR$" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="hexlet.code.App" />
+      <module name="app.app.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="hexlet.code.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="app:app [checkstyleMain]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/app" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--info" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value="checkstyleMain" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="app:app [clean]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/app" />
         <option name="externalSystemIdString" value="GRADLE" />
         <option name="scriptParameters" />
         <option name="taskDescriptions">
@@ -85,7 +133,7 @@
         </option>
         <option name="taskNames">
           <list>
-            <option value="installDist" />
+            <option value="clean" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -139,9 +187,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.app:app [checkstyleMain]" />
         <item itemvalue="Gradle.app:app [run]" />
-        <item itemvalue="Gradle.app [installDist]" />
         <item itemvalue="Gradle.app:app [installDist]" />
+        <item itemvalue="Application.App" />
+        <item itemvalue="Gradle.app:app [clean]" />
       </list>
     </recent_temporary>
   </component>
@@ -155,5 +205,19 @@
       <updated>1650640022227</updated>
     </task>
     <servers />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName="Makefile" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>
