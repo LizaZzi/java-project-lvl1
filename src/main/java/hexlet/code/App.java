@@ -3,15 +3,56 @@
  */
 package hexlet.code;
 
+import java.util.Scanner;
+
+import static hexlet.code.Even.*;
+
 public class App {
+    private static final Scanner SCANNER = new Scanner(System.in);
+    private static final int ROUND_CNT = 3;
+    private static final int GREET = 1;
+    private static final int EVEN = 2;
+    public static String name;
+
     /**
      * say Welcome.
-     * @return - String */
-    public String getGreeting() {
-        return "Welcome to the Brain Games!";
+     *
+     * @return - String
+     */
+    public static String getGreeting() {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Welcome to the Brain Games!\n"
+                + "May I have your name?");
+
+        name = scanner.nextLine();
+
+        return "Hello, " + name + "!";
     }
 
     public static void main(String[] args) {
-        System.out.println(Cli.getGreeting());
+
+        System.out.println("""
+                Please enter the game number and press Enter.\s
+                1 - Greet
+                2 - Even
+                0 - Exit
+                """);
+
+        int choice = SCANNER.nextInt();
+
+        System.out.println("Your choice: " + choice);
+
+        switch (choice) {
+            case GREET:
+                System.out.println(getGreeting());
+                break;
+            case EVEN:
+                System.out.println(getGreeting());
+                makeGame(ROUND_CNT);
+            default:
+                break;
+        }
+
     }
 }
