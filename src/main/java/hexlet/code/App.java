@@ -3,9 +3,11 @@
  */
 package hexlet.code;
 
-import java.util.Scanner;
+import hexlet.code.games.Calc;
+import hexlet.code.games.Even;
+import hexlet.code.games.Greet;
 
-import static hexlet.code.Even.makeGame;
+import java.util.Scanner;
 
 public class App {
     /**
@@ -21,11 +23,13 @@ public class App {
         Scanner scannerChoice = new Scanner(System.in);
         final int greet = 1;
         final int even = 2;
+        final int calc = 3;
 
         System.out.println("""
                 Please enter the game number and press Enter.
                 1 - Greet
                 2 - Even
+                3 - Calc
                 0 - Exit""");
 
         int choice = scannerChoice.nextInt();
@@ -34,10 +38,8 @@ public class App {
 
         switch (choice) {
             case greet -> Greet.getGreeting();
-            case even -> {
-                Greet.getGreeting();
-                makeGame();
-            }
+            case even -> Even.makeGame();
+            case calc -> Calc.makeGame();
             default -> {
             }
         }
