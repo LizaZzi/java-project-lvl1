@@ -44,8 +44,8 @@ public class Even {
         return "Congratulations, " + nameGamer + "!";
     }
 
-    public static void makeGame(String name) {
-        nameGamer = name;
+    public static void makeGame() {
+        nameGamer = Greet.getName();
 
         System.out.println(getGameConditions());
 
