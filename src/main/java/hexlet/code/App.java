@@ -5,54 +5,47 @@ package hexlet.code;
 
 import java.util.Scanner;
 
-import static hexlet.code.Even.*;
+import static hexlet.code.Even.makeGame;
 
 public class App {
-    private static final Scanner SCANNER = new Scanner(System.in);
-    private static final int ROUND_CNT = 3;
-    private static final int GREET = 1;
-    private static final int EVEN = 2;
-    public static String name;
-
     /**
      * say Welcome.
      *
      * @return - String
      */
-    public static String getGreeting() {
-        Scanner scanner = new Scanner(System.in);
-
-        System.out.println("Welcome to the Brain Games!\n"
-                + "May I have your name?");
-
-        name = scanner.nextLine();
-
-        return "Hello, " + name + "!";
+    public String getGreeting() {
+        return "Welcome to the Brain Games!";
     }
 
     public static void main(String[] args) {
+        Scanner scannerChoice = new Scanner(System.in);
+        int greet = 1;
+        int even = 2;
+        String name = "";
 
         System.out.println("""
-                Please enter the game number and press Enter.\s
+                Please enter the game number and press Enter.
                 1 - Greet
                 2 - Even
-                0 - Exit
-                """);
+                0 - Exit""");
 
-        int choice = SCANNER.nextInt();
+        int choice = scannerChoice.nextInt();
 
         System.out.println("Your choice: " + choice);
 
-        switch (choice) {
-            case GREET:
-                System.out.println(getGreeting());
-                break;
-            case EVEN:
-                System.out.println(getGreeting());
-                makeGame(ROUND_CNT);
-            default:
-                break;
+        if (choice == greet || choice == even) {
+            Scanner scannerName = new Scanner(System.in);
+
+            System.out.println("Welcome to the Brain Games! \n"
+                    + "May I have your name?");
+
+            name = scannerName.nextLine();
+
+            System.out.println("Hello, " + name + "!");
         }
 
+        if (choice == even) {
+            makeGame(name);
+        }
     }
 }
