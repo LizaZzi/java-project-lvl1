@@ -19,9 +19,8 @@ public class App {
 
     public static void main(String[] args) {
         Scanner scannerChoice = new Scanner(System.in);
-        int greet = 1;
-        int even = 2;
-        String name = "";
+        final int greet = 1;
+        final int even = 2;
 
         System.out.println("""
                 Please enter the game number and press Enter.
@@ -33,19 +32,14 @@ public class App {
 
         System.out.println("Your choice: " + choice);
 
-        if (choice == greet || choice == even) {
-            Scanner scannerName = new Scanner(System.in);
-
-            System.out.println("Welcome to the Brain Games! \n"
-                    + "May I have your name?");
-
-            name = scannerName.nextLine();
-
-            System.out.println("Hello, " + name + "!");
-        }
-
-        if (choice == even) {
-            makeGame(name);
+        switch (choice) {
+            case greet -> Greet.getGreeting();
+            case even -> {
+                Greet.getGreeting();
+                makeGame();
+            }
+            default -> {
+            }
         }
     }
 }
