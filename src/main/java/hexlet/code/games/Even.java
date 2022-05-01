@@ -1,6 +1,8 @@
 package hexlet.code.games;
 
-public class Even extends Game {
+import hexlet.code.Engine;
+
+public class Even extends Engine {
     public static void makeGame() {
         final String answerYes = "yes";
         final String answerNO = "no";
