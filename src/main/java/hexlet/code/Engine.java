@@ -1,10 +1,10 @@
-package hexlet.code.games;
+package hexlet.code;
 
 import java.util.Scanner;
 
 import static hexlet.code.games.Greet.getName;
 
-public class Game {
+public class Engine {
     public static final int ROUNDS = 3;
     public static final int MAX_RANDOM_NUMBER = 100;
     private static int correctCnt;
