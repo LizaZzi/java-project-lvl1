@@ -4,3 +4,9 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/e872b0594763ed597c4d/maintainability)](https://codeclimate.com/github/LizaZzi/java-project-lvl1/maintainability)
 
 ![Gradle build](https://github.com/LizaZzi/java-project-lvl1/actions/workflows/gradle-build.yml/badge.svg)
+
+Game 1, 2
+[![asciicast](https://asciinema.org/a/k4m4LvdVoG8tnd5L3Dq7q2oPq.svg)](https://asciinema.org/a/k4m4LvdVoG8tnd5L3Dq7q2oPq)
+
+Game 3
+[![asciicast](https://asciinema.org/a/mn58VLEdUAGCm14r5iYfxLmTW.svg)](https://asciinema.org/a/mn58VLEdUAGCm14r5iYfxLmTW)
