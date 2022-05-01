@@ -37,7 +37,7 @@ public class App {
         System.out.println("Your choice: " + choice);
 
         switch (choice) {
-            case greet -> Greet.getGreeting();
+            case greet -> System.out.println(Greet.getGreeting());
             case even -> Even.makeGame();
             case calc -> Calc.makeGame();
             default -> {
