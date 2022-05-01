@@ -1,40 +1,37 @@
 package hexlet.code.games;
 
+import hexlet.code.Engine;
 
-public class Calc extends Game {
+public class Calc extends Engine {
+    private static final String SUBTRACTION = "-";
+    private static final String ADDITION = "+";
+    private static final String MULTIPLY = "*";
     private static final int MAX_OPERATION = 3;
-    private static int result;
 
-    private static String getQuestion() {
-        int number1 = getRandomNumber(MAX_RANDOM_NUMBER);
-        int number2 = getRandomNumber(MAX_RANDOM_NUMBER);
-        int numberOperation = getRandomNumber(MAX_OPERATION);
-
-        final String subtraction = "-";
-        final String addition = "+";
-        final String multiply = "*";
-        final String[] operations = {subtraction, addition, multiply};
-
-        String operation = operations[numberOperation];
-
-        result = switch (operation) {
-            case subtraction -> number1 - number2;
-            case addition -> number1 + number2;
-            case multiply -> number1 * number2;
+    private static int getCorrectAnswer(int number1, int number2, String operation) {
+        return switch (operation) {
+            case SUBTRACTION -> number1 - number2;
+            case ADDITION -> number1 + number2;
+            case MULTIPLY -> number1 * number2;
             default -> 0;
         };
-
-        return number1 + " " + operation + " " + number2;
     }
 
     public static void makeGame() {
+        final String[] operations = {SUBTRACTION, ADDITION, MULTIPLY};
+
         System.out.println(Greet.getGreeting());
 
         System.out.println(getConditions("What is the result of the expression?"));
 
         for (int i = 0; i < ROUNDS; i++) {
-            System.out.println(getQuestion(getQuestion()));
-            System.out.println(getAnswer(String.valueOf(result)));
+            int number1 = getRandomNumber(MAX_RANDOM_NUMBER);
+            int number2 = getRandomNumber(MAX_RANDOM_NUMBER);
+            int numberOperation = getRandomNumber(MAX_OPERATION);
+            String operation = operations[numberOperation];
+
+            System.out.println(getQuestion(number1 + " " + operation + " " + number2));
+            System.out.println(getAnswer(String.valueOf(getCorrectAnswer(number1, number2, operation))));
         }
 
         System.out.println(getCongratulation());
