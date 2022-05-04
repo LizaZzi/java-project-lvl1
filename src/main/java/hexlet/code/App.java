@@ -4,10 +4,11 @@
 package hexlet.code;
 
 import hexlet.code.games.Greet;
-import hexlet.code.games.Calc;
 import hexlet.code.games.Even;
+import hexlet.code.games.Calc;
 import hexlet.code.games.GCD;
 import hexlet.code.games.Progression;
+import hexlet.code.games.Prime;
 
 import java.util.Scanner;
 
@@ -28,6 +29,7 @@ public class App {
         final int calc = 3;
         final int gcd = 4;
         final int progression = 5;
+        final int prime = 6;
 
         System.out.println("""
                 Please enter the game number and press Enter.
@@ -36,6 +38,7 @@ public class App {
                 3 - Calc
                 4 - GCD
                 5 - Progression
+                6 - Prime
                 0 - Exit""");
 
         int choice = scannerChoice.nextInt();
@@ -48,6 +51,7 @@ public class App {
             case calc -> Calc.makeGame();
             case gcd -> GCD.makeGame();
             case progression -> Progression.makeGame();
+            case prime -> Prime.makeGame();
             default -> {
             }
         }

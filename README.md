@@ -16,3 +16,6 @@ Game 4
 
 Game 5
 [![asciicast](https://asciinema.org/a/xsdwoy96KasNYIRGMlQ5DkSmS.svg)](https://asciinema.org/a/xsdwoy96KasNYIRGMlQ5DkSmS)
+
+Game 6
+[![asciicast](https://asciinema.org/a/kWe3hyDY5TpAfBIOsnhJ4Mmm7.svg)](https://asciinema.org/a/kWe3hyDY5TpAfBIOsnhJ4Mmm7)
