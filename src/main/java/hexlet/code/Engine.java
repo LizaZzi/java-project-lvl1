@@ -7,10 +7,11 @@ import static hexlet.code.games.Greet.getName;
 public class Engine {
     public static final int ROUNDS = 3;
     public static final int MAX_RANDOM_NUMBER = 100;
+    public static final int MIN_RANDOM_NUMBER = 0;
     private static int correctCnt;
 
-    public static int getRandomNumber(int maxNumber) {
-        return (int) (0 + Math.random() * maxNumber);
+    public static int getRandomNumber(int minNumber, int maxNumber) {
+        return (int) (minNumber + Math.random() * maxNumber);
     }
 
     public static String getConditions(String condition) {

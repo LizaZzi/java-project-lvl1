@@ -14,7 +14,7 @@ public class Even extends Engine {
         ));
 
         for (int i = 0; i < ROUNDS; i++) {
-            int randomNumber = getRandomNumber(MAX_RANDOM_NUMBER);
+            int randomNumber = getRandomNumber(MIN_RANDOM_NUMBER, MAX_RANDOM_NUMBER);
             String correctAnswer = randomNumber % 2 == 0 ? answerYes : answerNO;
 
             System.out.println(getQuestion(String.valueOf(randomNumber)));

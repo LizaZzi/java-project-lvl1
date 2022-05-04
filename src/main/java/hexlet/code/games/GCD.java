@@ -18,8 +18,8 @@ public class GCD extends Engine {
         System.out.println(getConditions("Find the greatest common divisor of given numbers."));
 
         for (int i = 0; i < ROUNDS; i++) {
-            int number1 = getRandomNumber(MAX_RANDOM_NUMBER);
-            int number2 = getRandomNumber(MAX_RANDOM_NUMBER);
+            int number1 = getRandomNumber(MIN_RANDOM_NUMBER, MAX_RANDOM_NUMBER);
+            int number2 = getRandomNumber(MIN_RANDOM_NUMBER, MAX_RANDOM_NUMBER);
 
             System.out.println(getQuestion(number1 + " " + number2));
             System.out.println(getAnswer(String.valueOf(getCorrectAnswer(number1, number2))));
