@@ -33,7 +33,7 @@ public class Progression extends Engine {
     public static void makeGame() {
         System.out.println(Greet.getGreeting());
 
-        System.out.println(getConditions("Find the greatest common divisor of given numbers."));
+        System.out.println(getConditions("What number is missing in the progression?"));
 
         for (int i = 0; i < ROUNDS; i++) {
             String[] progressionQuestion = getProgression();
