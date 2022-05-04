@@ -10,3 +10,6 @@ Game 1, 2
 
 Game 3
 [![asciicast](https://asciinema.org/a/mn58VLEdUAGCm14r5iYfxLmTW.svg)](https://asciinema.org/a/mn58VLEdUAGCm14r5iYfxLmTW)
+
+Game 4
+[![asciicast](https://asciinema.org/a/mtF1XuoujBHzAl0sMUwlZUfyc.svg)](https://asciinema.org/a/mtF1XuoujBHzAl0sMUwlZUfyc)
