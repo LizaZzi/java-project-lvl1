@@ -5,6 +5,8 @@ import java.util.Scanner;
 import static hexlet.code.games.Greet.getName;
 
 public class Engine {
+    public static final String ANSWER_YES = "yes";
+    public static final String ANSWER_NO = "no";
     public static final int ROUNDS = 3;
     public static final int MAX_RANDOM_NUMBER = 100;
     public static final int MIN_RANDOM_NUMBER = 0;
