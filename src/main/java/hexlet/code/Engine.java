@@ -9,10 +9,6 @@ public class Engine {
     public static final int MAX_RANDOM_NUMBER = 100;
     private static int correctCnt;
 
-    public static int getCorrectCnt() {
-        return correctCnt;
-    }
-
     public static int getRandomNumber(int maxNumber) {
         return (int) (0 + Math.random() * maxNumber);
     }
