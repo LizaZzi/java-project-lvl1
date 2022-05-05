@@ -17,7 +17,7 @@ public class Calc extends Engine {
         };
     }
 
-    public static void makeGame() {
+    public static int makeGame() {
         final String[] operations = {SUBTRACTION, ADDITION, MULTIPLY};
 
         System.out.println(Greet.getGreeting());
@@ -31,9 +31,18 @@ public class Calc extends Engine {
             String operation = operations[numberOperation];
 
             System.out.println(getQuestion(number1 + " " + operation + " " + number2));
-            System.out.println(getAnswer(String.valueOf(getCorrectAnswer(number1, number2, operation))));
+            System.out.println(getYourAnswer());
+
+            String result = checkAnswer(String.valueOf(getCorrectAnswer(number1, number2, operation)));
+            System.out.println(result);
+
+            if (!result.equals(CORRECT_ANSWER)) {
+                return EXIT;
+            }
         }
 
         System.out.println(getCongratulation());
+
+        return EXIT;
     }
 }

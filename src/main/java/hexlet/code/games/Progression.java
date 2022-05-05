@@ -30,7 +30,7 @@ public class Progression extends Engine {
         return progressionString.toString();
     }
 
-    public static void makeGame() {
+    public static int makeGame() {
         System.out.println(Greet.getGreeting());
 
         System.out.println(getConditions("What number is missing in the progression?"));
@@ -43,9 +43,18 @@ public class Progression extends Engine {
             progressionQuestion[randomNumberProgression] = "..";
 
             System.out.println(getQuestion(getProgressionAsString(progressionQuestion)));
-            System.out.println(getAnswer(correctAnswer));
+            System.out.println(getYourAnswer());
+
+            String result = checkAnswer(correctAnswer);
+            System.out.println(result);
+
+            if (!result.equals(CORRECT_ANSWER)) {
+                return EXIT;
+            }
         }
 
         System.out.println(getCongratulation());
+
+        return EXIT;
     }
 }

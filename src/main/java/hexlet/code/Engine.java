@@ -5,11 +5,14 @@ import java.util.Scanner;
 import static hexlet.code.games.Greet.getName;
 
 public class Engine {
+    public static final int EXIT = 0;
     public static final String ANSWER_YES = "yes";
     public static final String ANSWER_NO = "no";
     public static final int ROUNDS = 3;
     public static final int MAX_RANDOM_NUMBER = 100;
     public static final int MIN_RANDOM_NUMBER = 0;
+    public static final String CORRECT_ANSWER = "Correct!";
+    private static String answer;
     private static int correctCnt;
 
     public static int getRandomNumber(int minNumber, int maxNumber) {
@@ -24,20 +27,19 @@ public class Engine {
         return "Question: " + question;
     }
 
-    public static String getAnswer(String correctAnswer) {
+    public static String getYourAnswer() {
         Scanner scanner = new Scanner(System.in);
 
-        String answer = scanner.nextLine();
+        answer = scanner.nextLine();
 
-        return "Your answer: " + answer + "\n" + checkAnswer(correctAnswer, answer);
+        return "Your answer: " + answer;
     }
 
-    private static String checkAnswer(String correctAnswer, String answer) {
+    public static String checkAnswer(String correctAnswer) {
         if (answer.equals(correctAnswer)) {
             correctCnt++;
-            return "Correct!";
+            return CORRECT_ANSWER;
         } else {
-            correctCnt--;
             return "'" + answer + "' is wrong answer ;(. Correct answer was '" + correctAnswer + "'. \n"
                     + "Let's try again, " + getName() + "!";
         }

@@ -8,7 +8,7 @@ public class Prime extends Engine {
     private static final int[] PRIME_NUMBERS = {
         2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97};
 
-    public static void makeGame() {
+    public static int makeGame() {
         System.out.println(Greet.getGreeting());
 
         System.out.println(
@@ -22,9 +22,18 @@ public class Prime extends Engine {
                     ? ANSWER_YES : ANSWER_NO;
 
             System.out.println(getQuestion(String.valueOf(randomNumber)));
-            System.out.println(getAnswer(correctAnswer));
+            System.out.println(getYourAnswer());
+
+            String result = checkAnswer(correctAnswer);
+            System.out.println(result);
+
+            if (!result.equals(CORRECT_ANSWER)) {
+                return EXIT;
+            }
         }
 
         System.out.println(getCongratulation());
+
+        return EXIT;
     }
 }

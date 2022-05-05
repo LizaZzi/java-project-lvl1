@@ -3,7 +3,7 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 
 public class Even extends Engine {
-    public static void makeGame() {
+    public static int makeGame() {
         System.out.println(Greet.getGreeting());
 
         System.out.println(getConditions(
@@ -15,9 +15,18 @@ public class Even extends Engine {
             String correctAnswer = randomNumber % 2 == 0 ? ANSWER_YES : ANSWER_NO;
 
             System.out.println(getQuestion(String.valueOf(randomNumber)));
-            System.out.println(getAnswer(correctAnswer));
-        }
 
+            System.out.println(getYourAnswer());
+
+            String result = checkAnswer(correctAnswer);
+            System.out.println(result);
+
+            if (!result.equals(CORRECT_ANSWER)) {
+                return EXIT;
+            }
+        }
         System.out.println(getCongratulation());
+
+        return EXIT;
     }
 }

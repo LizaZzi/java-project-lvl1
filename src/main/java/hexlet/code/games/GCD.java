@@ -12,7 +12,7 @@ public class GCD extends Engine {
         return getCorrectAnswer(number2, number1 % number2);
     }
 
-    public static void makeGame() {
+    public static int makeGame() {
         System.out.println(Greet.getGreeting());
 
         System.out.println(getConditions("Find the greatest common divisor of given numbers."));
@@ -22,9 +22,18 @@ public class GCD extends Engine {
             int number2 = getRandomNumber(MIN_RANDOM_NUMBER, MAX_RANDOM_NUMBER);
 
             System.out.println(getQuestion(number1 + " " + number2));
-            System.out.println(getAnswer(String.valueOf(getCorrectAnswer(number1, number2))));
+            System.out.println(getYourAnswer());
+
+            String result = checkAnswer(String.valueOf(getCorrectAnswer(number1, number2)));
+            System.out.println(result);
+
+            if (!result.equals(CORRECT_ANSWER)) {
+                return EXIT;
+            }
         }
 
         System.out.println(getCongratulation());
+
+        return EXIT;
     }
 }
