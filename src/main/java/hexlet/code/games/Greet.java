@@ -18,7 +18,5 @@ public class Greet {
         name = scannerName.nextLine();
 
         System.out.println("Hello, " + name + "!");
-
-        scannerName.close();
     }
 }
