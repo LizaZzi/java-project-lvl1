@@ -1,5 +1,8 @@
 package hexlet.code;
 
+import hexlet.code.games.Greet;
+
+import java.util.Map;
 import java.util.Scanner;
 
 import static hexlet.code.games.Greet.getName;
@@ -11,41 +14,39 @@ public class Engine {
     public static final int ROUNDS = 3;
     public static final int MAX_RANDOM_NUMBER = 100;
     public static final int MIN_RANDOM_NUMBER = 0;
-    public static final String CORRECT_ANSWER = "Correct!";
-    private static String answer;
-    private static int correctCnt;
 
-    public static int getRandomNumber(int minNumber, int maxNumber) {
-        return (int) (minNumber + Math.random() * maxNumber);
-    }
-
-    public static String getConditions(String condition) {
-        return condition;
-    }
-
-    public static String getQuestion(String question) {
-        return "Question: " + question;
-    }
-
-    public static String getYourAnswer() {
+    public static void makeGame(String condition, Map<String, String> questions) {
         Scanner scanner = new Scanner(System.in);
+        String answer;
+        int correctCnt = 0;
 
-        answer = scanner.nextLine();
+        Greet.getGreeting();
 
-        return "Your answer: " + answer;
-    }
+        System.out.println(condition);
 
-    public static String checkAnswer(String correctAnswer) {
-        if (answer.equals(correctAnswer)) {
-            correctCnt++;
-            return CORRECT_ANSWER;
-        } else {
-            return "'" + answer + "' is wrong answer ;(. Correct answer was '" + correctAnswer + "'. \n"
-                    + "Let's try again, " + getName() + "!";
+        for (Map.Entry<String, String> question : questions.entrySet()) {
+            String correctAnswer = question.getValue();
+
+            System.out.println("Question: " + question.getKey());
+
+            answer = scanner.nextLine();
+
+            if (answer.equals(correctAnswer)) {
+                correctCnt++;
+                System.out.println("Correct!");
+            } else {
+                System.out.println("'" + answer + "' is wrong answer ;(. Correct answer was '" + correctAnswer + "'. \n"
+                        + "Let's try again, " + getName() + "!");
+                break;
+                }
+            }
+
+        if (correctCnt == ROUNDS) {
+            System.out.println("Congratulations, " + getName() + "!");
         }
-    }
 
-    public static String getCongratulation() {
-        return correctCnt == ROUNDS ? "Congratulations, " + getName() + "!" : "";
+        System.out.println(EXIT);
+
+        scanner.close();
     }
 }
