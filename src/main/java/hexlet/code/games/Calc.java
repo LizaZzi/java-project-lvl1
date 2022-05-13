@@ -32,7 +32,8 @@ public class Calc extends Engine {
             int numberOperation = getRandomNumber(MIN_RANDOM_NUMBER, MAX_OPERATION);
             String operation = OPERATIONS[numberOperation];
 
-            questions.put(number1 + " " + operation + " " + number2, String.valueOf(getCorrectAnswer(number1, number2, operation)));
+            questions.put(number1 + " " + operation + " " + number2,
+                    String.valueOf(getCorrectAnswer(number1, number2, operation)));
         }
 
         makeGame("What is the result of the expression?", questions);

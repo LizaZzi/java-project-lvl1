@@ -23,6 +23,7 @@ public class Prime extends Engine {
             questions.put(String.valueOf(randomNumber), correctAnswer);
         }
 
-        makeGame("Answer '" + ANSWER_YES + "' if given number is prime. Otherwise answer '" + ANSWER_NO + "'.", questions);
+        makeGame("Answer '" + ANSWER_YES + "' if given number is prime. Otherwise answer '" + ANSWER_NO + "'.",
+                questions);
     }
 }
