@@ -41,10 +41,11 @@ public class Progression extends Engine {
         for (int i = 0; i < ROUNDS; i++) {
             String[] progressionQuestion = getProgression();
             int randomNumberProgression = getRandomNumber(MIN_RANDOM_NUMBER, progressionQuestion.length - 1);
+            String correctAnswer = progressionQuestion[randomNumberProgression];
 
             progressionQuestion[randomNumberProgression] = "..";
 
-            questions.put(getProgressionAsString(progressionQuestion), progressionQuestion[randomNumberProgression]);
+            questions.put(getProgressionAsString(progressionQuestion), correctAnswer);
         }
 
         makeGame("What number is missing in the progression?", questions);
