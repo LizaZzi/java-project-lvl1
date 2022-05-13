@@ -2,6 +2,11 @@ package hexlet.code.games;
 
 import hexlet.code.Engine;
 
+import java.util.HashMap;
+import java.util.Map;
+
+import static hexlet.code.Util.getRandomNumber;
+
 public class GCD extends Engine {
 
     private static int getCorrectAnswer(int number1, int number2) {
@@ -12,28 +17,16 @@ public class GCD extends Engine {
         return getCorrectAnswer(number2, number1 % number2);
     }
 
-    public static int makeGame() {
-        System.out.println(Greet.getGreeting());
-
-        System.out.println(getConditions("Find the greatest common divisor of given numbers."));
+    public static void runGame() {
+        Map<String, String> questions = new HashMap<>();
 
         for (int i = 0; i < ROUNDS; i++) {
             int number1 = getRandomNumber(MIN_RANDOM_NUMBER, MAX_RANDOM_NUMBER);
             int number2 = getRandomNumber(MIN_RANDOM_NUMBER, MAX_RANDOM_NUMBER);
 
-            System.out.println(getQuestion(number1 + " " + number2));
-            System.out.println(getYourAnswer());
-
-            String result = checkAnswer(String.valueOf(getCorrectAnswer(number1, number2)));
-            System.out.println(result);
-
-            if (!result.equals(CORRECT_ANSWER)) {
-                return EXIT;
-            }
+            questions.put(number1 + " " + number2, String.valueOf(getCorrectAnswer(number1, number2)));
         }
 
-        System.out.println(getCongratulation());
-
-        return EXIT;
+        makeGame("Find the greatest common divisor of given numbers.", questions);
     }
 }

@@ -2,6 +2,11 @@ package hexlet.code.games;
 
 import hexlet.code.Engine;
 
+import java.util.HashMap;
+import java.util.Map;
+
+import static hexlet.code.Util.getRandomNumber;
+
 public class Progression extends Engine {
     private static final int MIN_PROGRESSION_SIZE = 5;
     private static final int MAX_PROGRESSION_SIZE = 10;
@@ -30,31 +35,18 @@ public class Progression extends Engine {
         return progressionString.toString();
     }
 
-    public static int makeGame() {
-        System.out.println(Greet.getGreeting());
-
-        System.out.println(getConditions("What number is missing in the progression?"));
+    public static void runGame() {
+        Map<String, String> questions = new HashMap<>();
 
         for (int i = 0; i < ROUNDS; i++) {
             String[] progressionQuestion = getProgression();
             int randomNumberProgression = getRandomNumber(MIN_RANDOM_NUMBER, progressionQuestion.length - 1);
-            String correctAnswer = progressionQuestion[randomNumberProgression];
 
             progressionQuestion[randomNumberProgression] = "..";
 
-            System.out.println(getQuestion(getProgressionAsString(progressionQuestion)));
-            System.out.println(getYourAnswer());
-
-            String result = checkAnswer(correctAnswer);
-            System.out.println(result);
-
-            if (!result.equals(CORRECT_ANSWER)) {
-                return EXIT;
-            }
+            questions.put(getProgressionAsString(progressionQuestion), progressionQuestion[randomNumberProgression]);
         }
 
-        System.out.println(getCongratulation());
-
-        return EXIT;
+        makeGame("What number is missing in the progression?", questions);
     }
 }

@@ -2,11 +2,17 @@ package hexlet.code.games;
 
 import hexlet.code.Engine;
 
+import java.util.HashMap;
+import java.util.Map;
+
+import static hexlet.code.Util.getRandomNumber;
+
 public class Calc extends Engine {
     private static final String SUBTRACTION = "-";
     private static final String ADDITION = "+";
     private static final String MULTIPLY = "*";
     private static final int MAX_OPERATION = 3;
+    private static final String[] OPERATIONS = {SUBTRACTION, ADDITION, MULTIPLY};
 
     private static int getCorrectAnswer(int number1, int number2, String operation) {
         return switch (operation) {
@@ -17,32 +23,18 @@ public class Calc extends Engine {
         };
     }
 
-    public static int makeGame() {
-        final String[] operations = {SUBTRACTION, ADDITION, MULTIPLY};
-
-        System.out.println(Greet.getGreeting());
-
-        System.out.println(getConditions("What is the result of the expression?"));
+    public static void runGame() {
+        Map<String, String> questions = new HashMap<>();
 
         for (int i = 0; i < ROUNDS; i++) {
             int number1 = getRandomNumber(MIN_RANDOM_NUMBER, MAX_RANDOM_NUMBER);
             int number2 = getRandomNumber(MIN_RANDOM_NUMBER, MAX_RANDOM_NUMBER);
             int numberOperation = getRandomNumber(MIN_RANDOM_NUMBER, MAX_OPERATION);
-            String operation = operations[numberOperation];
+            String operation = OPERATIONS[numberOperation];
 
-            System.out.println(getQuestion(number1 + " " + operation + " " + number2));
-            System.out.println(getYourAnswer());
-
-            String result = checkAnswer(String.valueOf(getCorrectAnswer(number1, number2, operation)));
-            System.out.println(result);
-
-            if (!result.equals(CORRECT_ANSWER)) {
-                return EXIT;
-            }
+            questions.put(number1 + " " + operation + " " + number2, String.valueOf(getCorrectAnswer(number1, number2, operation)));
         }
 
-        System.out.println(getCongratulation());
-
-        return EXIT;
+        makeGame("What is the result of the expression?", questions);
     }
 }
