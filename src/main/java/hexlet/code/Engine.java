@@ -38,8 +38,8 @@ public class Engine {
                 System.out.println("'" + answer + "' is wrong answer ;(. Correct answer was '" + correctAnswer + "'. \n"
                         + "Let's try again, " + getName() + "!");
                 break;
-                }
             }
+        }
 
         if (correctCnt == ROUNDS) {
             System.out.println("Congratulations, " + getName() + "!");
