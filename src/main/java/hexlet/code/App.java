@@ -36,15 +36,13 @@ public class App {
 
         switch (choice) {
             case exit -> System.out.println("0");
-            case greet -> System.out.println(Greet.runGame());
+            case greet -> Greet.getGreeting();
             case even -> Even.runGame();
             case calc -> Calc.runGame();
             case gcd -> GCD.runGame();
             case progression -> Progression.runGame();
             case prime -> Prime.runGame();
-            default -> {
-                System.out.println("Введен неверный номер игры.");
-            }
+            default -> System.out.println("Введен неверный номер игры.");
         }
 
         scannerChoice.close();
