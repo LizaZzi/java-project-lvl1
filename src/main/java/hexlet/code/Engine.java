@@ -35,19 +35,16 @@ public class Engine {
 
             String answer = scanner.nextLine();
 
-            if (answer.equals(correctAnswer)) {
-                System.out.println("Correct!");
-            } else {
+            if (!answer.equals(correctAnswer)) {
                 System.out.println("'" + answer + "' is wrong answer ;(. Correct answer was '" + correctAnswer + "'. \n"
                         + "Let's try again, " + name + "!");
-                break;
+                scanner.close();
+                return;
             }
         }
 
         System.out.println("Congratulations, " + name + "!");
 
         System.out.println(EXIT);
-
-        scanner.close();
     }
 }
