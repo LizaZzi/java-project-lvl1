@@ -1,6 +1,5 @@
 package hexlet.code;
 
-import hexlet.code.games.Greet;
 import hexlet.code.games.Even;
 import hexlet.code.games.Calc;
 import hexlet.code.games.GCD;
@@ -11,14 +10,7 @@ import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) {
-        Scanner scannerChoice = new Scanner(System.in);
-        final int exit = 0;
-        final int greet = 1;
-        final int even = 2;
-        final int calc = 3;
-        final int gcd = 4;
-        final int progression = 5;
-        final int prime = 6;
+        Scanner scanner = new Scanner(System.in);
 
         System.out.println("""
                 Please enter the game number and press Enter.
@@ -30,21 +22,25 @@ public class App {
                 6 - Prime
                 0 - Exit""");
 
-        int choice = scannerChoice.nextInt();
+        String choice = scanner.nextLine();
 
         System.out.println("Your choice: " + choice);
 
         switch (choice) {
-            case exit -> System.out.println("0");
-            case greet -> Greet.getGreeting();
-            case even -> Even.runGame();
-            case calc -> Calc.runGame();
-            case gcd -> GCD.runGame();
-            case progression -> Progression.runGame();
-            case prime -> Prime.runGame();
+            case "1" -> {
+                System.out.println("Welcome to the Brain Games! \n"
+                        + "May I have your name?");
+                System.out.println("Hello, " + scanner.nextLine() + "!");
+            }
+            case "2" -> Even.runGame();
+            case "3" -> Calc.runGame();
+            case "4" -> GCD.runGame();
+            case "5" -> Progression.runGame();
+            case "6" -> Prime.runGame();
+            case "0" -> System.out.println("Goodbye");
             default -> System.out.println("Введен неверный номер игры.");
         }
 
-        scannerChoice.close();
+        scanner.close();
     }
 }

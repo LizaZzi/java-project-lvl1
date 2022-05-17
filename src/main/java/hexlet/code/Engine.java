@@ -1,11 +1,7 @@
 package hexlet.code;
 
-import hexlet.code.games.Greet;
-
 import java.util.Map;
 import java.util.Scanner;
-
-import static hexlet.code.games.Greet.getName;
 
 public class Engine {
     public static final int EXIT = 0;
@@ -15,35 +11,40 @@ public class Engine {
     public static final int MAX_RANDOM_NUMBER = 100;
     public static final int MIN_RANDOM_NUMBER = 0;
 
-    public static void makeGame(String condition, Map<String, String> questions) {
+    public static int getRandomNumber(int minNumber, int maxNumber) {
+        return (int) (minNumber + Math.random() * maxNumber);
+    }
+
+    public static void runGame(String description, Map<String, String> gameData) {
         Scanner scanner = new Scanner(System.in);
-        String answer;
-        int correctCnt = 0;
+        String name;
 
-        Greet.getGreeting();
+        System.out.println("Welcome to the Brain Games! \n"
+                + "May I have your name?");
 
-        System.out.println(condition);
+        name = scanner.nextLine();
 
-        for (Map.Entry<String, String> question : questions.entrySet()) {
+        System.out.println("Hello, "  + name + "!");
+
+        System.out.println(description);
+
+        for (Map.Entry<String, String> question : gameData.entrySet()) {
             String correctAnswer = question.getValue();
 
             System.out.println("Question: " + question.getKey());
 
-            answer = scanner.nextLine();
+            String answer = scanner.nextLine();
 
             if (answer.equals(correctAnswer)) {
-                correctCnt++;
                 System.out.println("Correct!");
             } else {
                 System.out.println("'" + answer + "' is wrong answer ;(. Correct answer was '" + correctAnswer + "'. \n"
-                        + "Let's try again, " + getName() + "!");
+                        + "Let's try again, " + name + "!");
                 break;
             }
         }
 
-        if (correctCnt == ROUNDS) {
-            System.out.println("Congratulations, " + getName() + "!");
-        }
+        System.out.println("Congratulations, " + name + "!");
 
         System.out.println(EXIT);
 
