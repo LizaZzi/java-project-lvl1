@@ -5,12 +5,13 @@ import hexlet.code.Engine;
 import java.util.HashMap;
 import java.util.Map;
 
-import static hexlet.code.Engine.MIN_RANDOM_NUMBER;
-import static hexlet.code.Engine.MAX_RANDOM_NUMBER;
 import static hexlet.code.Engine.ROUNDS;
 import static hexlet.code.Util.getRandomNumber;
 
 public class Progression {
+    private static final int MAX_RANDOM_NUMBER = 100;
+    private static final int MIN_RANDOM_NUMBER = 0;
+
     private static String[] generateProgression(int begin, int diff, int size) {
         String[] progression = new String[size];
         progression[0] = String.valueOf(begin);
@@ -18,7 +19,6 @@ public class Progression {
         for (int i = 1; i < size; i++) {
             progression[i] = String.valueOf(Integer.parseInt(progression[i - 1]) + diff);
         }
-
         return progression;
     }
 
@@ -27,11 +27,10 @@ public class Progression {
         for (String number : progression) {
             progressionString.append(number).append(" ");
         }
-
         return progressionString.toString();
     }
 
-    private static Map<String, String> round() {
+    private static Map<String, String> generateRoundData() {
         Map<String, String> gameData = new HashMap<>();
         final int minProgressionSize = 5;
         final int maxProgressionSize = 10;
@@ -40,13 +39,12 @@ public class Progression {
         int size = getRandomNumber(minProgressionSize, maxProgressionSize);
         String[] progressionQuestion = generateProgression(begin, diff, size);
         int randomNumberProgression = getRandomNumber(MIN_RANDOM_NUMBER, progressionQuestion.length - 1);
-        String answer = progressionQuestion[randomNumberProgression];
 
+        String answer = progressionQuestion[randomNumberProgression];
         progressionQuestion[randomNumberProgression] = "..";
         String question = getProgressionAsString(progressionQuestion);
 
         gameData.put(question, answer);
-
         return gameData;
     }
 
@@ -54,9 +52,8 @@ public class Progression {
         Map<String, String> gameData = new HashMap<>();
 
         for (int i = 0; i < ROUNDS; i++) {
-            gameData.putAll(round());
+            gameData.putAll(generateRoundData());
         }
-
         Engine.runGame("What number is missing in the progression?", gameData);
     }
 }
