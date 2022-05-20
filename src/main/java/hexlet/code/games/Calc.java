@@ -14,20 +14,22 @@ public class Calc {
     private static final int MAX_OPERATION = 3;
     private static final char[] OPERATIONS = {'-', '+', '*'};
 
-    public static Map<String, String> generateRoundData() {
-        Map<String, String> gameData = new HashMap<>();
-        int number1 = getRandomNumber(MIN_RANDOM_NUMBER, MAX_RANDOM_NUMBER);
-        int number2 = getRandomNumber(MIN_RANDOM_NUMBER, MAX_RANDOM_NUMBER);
-        int numberOperation = getRandomNumber(MIN_RANDOM_NUMBER, MAX_OPERATION);
-        char operation = OPERATIONS[numberOperation];
-
-        int correctAnswer = switch (operation) {
+    private static int calculate(int number1, int number2, char operation) {
+        return switch (operation) {
             case '-' -> number1 - number2;
             case '+' -> number1 + number2;
             case '*' -> number1 * number2;
             default -> 0;
         };
+    }
 
+    private static Map<String, String> generateRoundData() {
+        Map<String, String> gameData = new HashMap<>();
+        int number1 = getRandomNumber(MIN_RANDOM_NUMBER, MAX_RANDOM_NUMBER);
+        int number2 = getRandomNumber(MIN_RANDOM_NUMBER, MAX_RANDOM_NUMBER);
+        int numberOperation = getRandomNumber(MIN_RANDOM_NUMBER, MAX_OPERATION);
+        char operation = OPERATIONS[numberOperation];
+        int correctAnswer = calculate(number1, number2, operation);
         String question = number1 + " " + operation + " " + number2;
         String answer = String.valueOf(correctAnswer);
 
