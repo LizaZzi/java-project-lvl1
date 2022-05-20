@@ -7,8 +7,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static hexlet.code.Engine.ROUNDS;
-import static hexlet.code.Engine.ANSWER_YES;
-import static hexlet.code.Engine.ANSWER_NO;
 import static hexlet.code.Util.getRandomNumber;
 
 public class Even {
@@ -22,7 +20,7 @@ public class Even {
     public static RoundData generateRoundData() {
         int randomNumber = getRandomNumber(MIN_RANDOM_NUMBER, MAX_RANDOM_NUMBER);
         String question = String.valueOf(randomNumber);
-        String answer = isEven(randomNumber) ? ANSWER_YES : ANSWER_NO;
+        String answer = isEven(randomNumber) ? "yes" : "no";
 
         return new RoundData(question, answer);
     }
@@ -33,7 +31,7 @@ public class Even {
         for (int i = 0; i < ROUNDS; i++) {
             gameData.add(generateRoundData());
         }
-        Engine.runGame("Answer '" + ANSWER_YES + "' if the number is even, otherwise answer '" + ANSWER_NO + "'.",
+        Engine.runGame("Answer 'yes' if the number is even, otherwise answer 'no'.",
                 gameData);
     }
 }

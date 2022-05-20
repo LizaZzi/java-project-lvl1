@@ -4,9 +4,7 @@ import hexlet.code.Engine;
 import hexlet.code.RoundData;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import static hexlet.code.Engine.ROUNDS;
 import static hexlet.code.Util.getRandomNumber;
@@ -15,37 +13,40 @@ public class Progression {
     private static final int MAX_RANDOM_NUMBER = 100;
     private static final int MIN_RANDOM_NUMBER = 0;
 
-    private static String[] generateProgression(int begin, int diff, int size) {
-        String[] progression = new String[size];
-        progression[0] = String.valueOf(begin);
+    private static int[] generateProgression(int begin, int diff, int size) {
+        int[] progression = new int[size];
+        progression[0] = begin;
 
         for (int i = 1; i < size; i++) {
-            progression[i] = String.valueOf(Integer.parseInt(progression[i - 1]) + diff);
+            progression[i] = progression[i - 1] + diff;
         }
         return progression;
     }
 
-    private static String getProgressionAsString(String[] progression) {
+    private static String getProgressionAsQuestion(int[] progression, int elementNumber) {
         StringBuilder progressionString = new StringBuilder();
-        for (String number : progression) {
-            progressionString.append(number).append(" ");
+        String numberStr;
+        for (int i = 0; i < progression.length; i++) {
+            numberStr = String.valueOf(progression[i]);
+
+            if (i == elementNumber) {
+                numberStr = "..";
+            }
+            progressionString.append(numberStr).append(" ");
         }
         return progressionString.toString();
     }
 
     private static RoundData generateRoundData() {
-        Map<String, String> gameData = new HashMap<>();
         final int minProgressionSize = 5;
         final int maxProgressionSize = 10;
         int begin = getRandomNumber(MIN_RANDOM_NUMBER, MAX_RANDOM_NUMBER);
         int diff = getRandomNumber(MIN_RANDOM_NUMBER + 1, MAX_RANDOM_NUMBER);
         int size = getRandomNumber(minProgressionSize, maxProgressionSize);
-        String[] progressionQuestion = generateProgression(begin, diff, size);
-        int randomNumberProgression = getRandomNumber(MIN_RANDOM_NUMBER, progressionQuestion.length - 1);
-
-        String answer = progressionQuestion[randomNumberProgression];
-        progressionQuestion[randomNumberProgression] = "..";
-        String question = getProgressionAsString(progressionQuestion);
+        int[] progressionQuestion = generateProgression(begin, diff, size);
+        int randomElementNumber = getRandomNumber(MIN_RANDOM_NUMBER, progressionQuestion.length - 1);
+        String answer = String.valueOf(progressionQuestion[randomElementNumber]);
+        String question = getProgressionAsQuestion(progressionQuestion, randomElementNumber);
 
         return new RoundData(question, answer);
     }

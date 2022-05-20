@@ -15,12 +15,12 @@ public class Calc {
     private static final int MAX_OPERATION = 3;
     private static final char[] OPERATIONS = {'-', '+', '*'};
 
-    private static int calculate(int number1, int number2, char operation) {
+    private static int calculate(int number1, int number2, char operation) throws IllegalArgumentException {
         return switch (operation) {
             case '-' -> number1 - number2;
             case '+' -> number1 + number2;
             case '*' -> number1 * number2;
-            default -> 0;
+            default -> throw new IllegalArgumentException("Unexpected operation: '" + operation + "'");
         };
     }
 

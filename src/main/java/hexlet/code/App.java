@@ -27,7 +27,7 @@ public class App {
         System.out.println("Your choice: " + choice);
 
         switch (choice) {
-            case "1" -> Engine.greet();
+            case "1" -> Cli.greet();
             case "2" -> Even.runGame();
             case "3" -> Calc.runGame();
             case "4" -> GCD.runGame();
