@@ -1,19 +1,19 @@
 package hexlet.code;
 
 public class RoundData {
-    private final String question; 
+    private final String question;
     private final String answer;
 
-    public RoundData(String question, String answer) {
-        this.question = question;
-        this.answer = answer;
+    public RoundData(String roundQuestion, String roundAnswer) {
+        this.question = roundQuestion;
+        this.answer = roundAnswer;
     }
 
-    public String getQuestion() {
+    public final String getQuestion() {
         return question;
     }
 
-    public String getAnswer() {
+    public final String getAnswer() {
         return answer;
     }
 }
