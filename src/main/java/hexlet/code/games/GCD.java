@@ -8,7 +8,7 @@ import java.util.Map;
 import static hexlet.code.Engine.MIN_RANDOM_NUMBER;
 import static hexlet.code.Engine.MAX_RANDOM_NUMBER;
 import static hexlet.code.Engine.ROUNDS;
-import static hexlet.code.Engine.getRandomNumber;
+import static hexlet.code.Util.getRandomNumber;
 
 public class GCD {
 

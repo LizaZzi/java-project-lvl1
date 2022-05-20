@@ -27,11 +27,7 @@ public class App {
         System.out.println("Your choice: " + choice);
 
         switch (choice) {
-            case "1" -> {
-                System.out.println("Welcome to the Brain Games! \n"
-                        + "May I have your name?");
-                System.out.println("Hello, " + scanner.nextLine() + "!");
-            }
+            case "1" -> Engine.greet();
             case "2" -> Even.runGame();
             case "3" -> Calc.runGame();
             case "4" -> GCD.runGame();

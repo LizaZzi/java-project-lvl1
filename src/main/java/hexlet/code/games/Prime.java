@@ -11,7 +11,7 @@ import static hexlet.code.Engine.MAX_RANDOM_NUMBER;
 import static hexlet.code.Engine.ROUNDS;
 import static hexlet.code.Engine.ANSWER_YES;
 import static hexlet.code.Engine.ANSWER_NO;
-import static hexlet.code.Engine.getRandomNumber;
+import static hexlet.code.Util.getRandomNumber;
 
 public class Prime {
     private static Map<String, String> round() {

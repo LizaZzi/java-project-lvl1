@@ -10,13 +10,19 @@ public class Engine {
     public static final int ROUNDS = 3;
     public static final int MAX_RANDOM_NUMBER = 100;
     public static final int MIN_RANDOM_NUMBER = 0;
+    private static Scanner scanner = new Scanner(System.in);
 
-    public static int getRandomNumber(int minNumber, int maxNumber) {
-        return (int) (minNumber + Math.random() * maxNumber);
+    public static String greet() {
+        System.out.println("Welcome to the Brain Games! \n"
+                + "May I have your name?");
+
+        String name = scanner.nextLine();
+
+        scanner.close();
+        return "Hello, " + name + "!";
     }
 
     public static void runGame(String description, Map<String, String> gameData) {
-        Scanner scanner = new Scanner(System.in);
         String name;
 
         System.out.println("Welcome to the Brain Games! \n"
