@@ -1,9 +1,10 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
+import hexlet.code.RoundData;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.List;
 
 import static hexlet.code.Engine.ROUNDS;
 import static hexlet.code.Util.getRandomNumber;
@@ -19,22 +20,20 @@ public class GCD {
         return calculateGCD(number2, number1 % number2);
     }
 
-    private static Map<String, String> generateRoundData() {
-        Map<String, String> gameData = new HashMap<>();
+    private static RoundData generateRoundData() {
         int number1 = getRandomNumber(MIN_RANDOM_NUMBER, MAX_RANDOM_NUMBER);
         int number2 = getRandomNumber(MIN_RANDOM_NUMBER, MAX_RANDOM_NUMBER);
         String question = number1 + " " + number2;
         String answer = String.valueOf(calculateGCD(number1, number2));
 
-        gameData.put(question, answer);
-        return gameData;
+        return new RoundData(question, answer);
     }
 
     public static void runGame() {
-        Map<String, String> gameData = new HashMap<>();
+        List<RoundData> gameData = new ArrayList<>();
 
         for (int i = 0; i < ROUNDS; i++) {
-            gameData.putAll(generateRoundData());
+            gameData.add(generateRoundData());
         }
         Engine.runGame("Find the greatest common divisor of given numbers.", gameData);
     }

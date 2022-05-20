@@ -1,8 +1,11 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
+import hexlet.code.RoundData;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import static hexlet.code.Engine.ROUNDS;
@@ -30,7 +33,7 @@ public class Progression {
         return progressionString.toString();
     }
 
-    private static Map<String, String> generateRoundData() {
+    private static RoundData generateRoundData() {
         Map<String, String> gameData = new HashMap<>();
         final int minProgressionSize = 5;
         final int maxProgressionSize = 10;
@@ -44,15 +47,14 @@ public class Progression {
         progressionQuestion[randomNumberProgression] = "..";
         String question = getProgressionAsString(progressionQuestion);
 
-        gameData.put(question, answer);
-        return gameData;
+        return new RoundData(question, answer);
     }
 
     public static void runGame() {
-        Map<String, String> gameData = new HashMap<>();
+        List<RoundData> gameData = new ArrayList<>();
 
         for (int i = 0; i < ROUNDS; i++) {
-            gameData.putAll(generateRoundData());
+            gameData.add(generateRoundData());
         }
         Engine.runGame("What number is missing in the progression?", gameData);
     }

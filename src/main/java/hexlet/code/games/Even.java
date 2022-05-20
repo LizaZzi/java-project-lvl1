@@ -1,9 +1,10 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
+import hexlet.code.RoundData;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.List;
 
 import static hexlet.code.Engine.ROUNDS;
 import static hexlet.code.Engine.ANSWER_YES;
@@ -18,21 +19,19 @@ public class Even {
         return randomNumber % 2 == 0;
     }
 
-    public static Map<String, String> generateRoundData() {
-        Map<String, String> gameData = new HashMap<>();
+    public static RoundData generateRoundData() {
         int randomNumber = getRandomNumber(MIN_RANDOM_NUMBER, MAX_RANDOM_NUMBER);
         String question = String.valueOf(randomNumber);
         String answer = isEven(randomNumber) ? ANSWER_YES : ANSWER_NO;
 
-        gameData.put(question, answer);
-        return gameData;
+        return new RoundData(question, answer);
     }
 
     public static void runGame() {
-        Map<String, String> gameData = new HashMap<>();
+        List<RoundData> gameData = new ArrayList<>();
 
         for (int i = 0; i < ROUNDS; i++) {
-            gameData.putAll(generateRoundData());
+            gameData.add(generateRoundData());
         }
         Engine.runGame("Answer '" + ANSWER_YES + "' if the number is even, otherwise answer '" + ANSWER_NO + "'.",
                 gameData);
