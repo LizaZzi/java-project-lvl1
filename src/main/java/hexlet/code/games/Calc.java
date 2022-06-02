@@ -12,8 +12,8 @@ import static hexlet.code.Util.getRandomNumber;
 public class Calc {
     private static final int MAX_RANDOM_NUMBER = 100;
     private static final int MIN_RANDOM_NUMBER = 0;
-    private static final int MAX_OPERATION = 3;
     private static final char[] OPERATIONS = {'-', '+', '*'};
+    private static final String DESCRIPTION = "What is the result of the expression?";
 
     private static int calculate(int number1, int number2, char operation) throws IllegalArgumentException {
         return switch (operation) {
@@ -27,7 +27,7 @@ public class Calc {
     private static RoundData generateRoundData() {
         int number1 = getRandomNumber(MIN_RANDOM_NUMBER, MAX_RANDOM_NUMBER);
         int number2 = getRandomNumber(MIN_RANDOM_NUMBER, MAX_RANDOM_NUMBER);
-        int numberOperation = getRandomNumber(MIN_RANDOM_NUMBER, MAX_OPERATION);
+        int numberOperation = getRandomNumber(MIN_RANDOM_NUMBER, OPERATIONS.length);
         char operation = OPERATIONS[numberOperation];
         int correctAnswer = calculate(number1, number2, operation);
         String question = number1 + " " + operation + " " + number2;
@@ -42,6 +42,6 @@ public class Calc {
         for (int i = 0; i < ROUNDS; i++) {
             gameData.add(generateRoundData());
         }
-        Engine.runGame("What is the result of the expression?", gameData);
+        Engine.runGame(DESCRIPTION, gameData);
     }
 }

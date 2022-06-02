@@ -12,6 +12,7 @@ import static hexlet.code.Util.getRandomNumber;
 public class GCD {
     private static final int MAX_RANDOM_NUMBER = 100;
     private static final int MIN_RANDOM_NUMBER = 0;
+    private static final String DESCRIPTION = "Find the greatest common divisor of given numbers.";
 
     private static int calculateGCD(int number1, int number2) {
         if (number2 == 0) {
@@ -35,6 +36,6 @@ public class GCD {
         for (int i = 0; i < ROUNDS; i++) {
             gameData.add(generateRoundData());
         }
-        Engine.runGame("Find the greatest common divisor of given numbers.", gameData);
+        Engine.runGame(DESCRIPTION, gameData);
     }
 }

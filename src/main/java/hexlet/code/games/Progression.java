@@ -12,6 +12,7 @@ import static hexlet.code.Util.getRandomNumber;
 public class Progression {
     private static final int MAX_RANDOM_NUMBER = 100;
     private static final int MIN_RANDOM_NUMBER = 0;
+    private static final String DESCRIPTION = "What number is missing in the progression?";
 
     private static int[] generateProgression(int begin, int diff, int size) {
         int[] progression = new int[size];
@@ -57,6 +58,6 @@ public class Progression {
         for (int i = 0; i < ROUNDS; i++) {
             gameData.add(generateRoundData());
         }
-        Engine.runGame("What number is missing in the progression?", gameData);
+        Engine.runGame(DESCRIPTION, gameData);
     }
 }

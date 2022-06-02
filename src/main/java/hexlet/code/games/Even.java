@@ -12,6 +12,7 @@ import static hexlet.code.Util.getRandomNumber;
 public class Even {
     private static final int MAX_RANDOM_NUMBER = 100;
     private static final int MIN_RANDOM_NUMBER = 0;
+    private static final String DESCRIPTION = "Answer 'yes' if the number is even, otherwise answer 'no'.";
 
     private static boolean isEven(int randomNumber) {
         return randomNumber % 2 == 0;
@@ -31,7 +32,6 @@ public class Even {
         for (int i = 0; i < ROUNDS; i++) {
             gameData.add(generateRoundData());
         }
-        Engine.runGame("Answer 'yes' if the number is even, otherwise answer 'no'.",
-                gameData);
+        Engine.runGame(DESCRIPTION, gameData);
     }
 }
